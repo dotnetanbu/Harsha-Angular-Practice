@@ -17,3 +17,6 @@ Angular Impartant Comments
     npm install popper.js --save
     npm install bootstrap --save
     npm install font-awesome --save
+
+5) Create New Components
+    ng g component Dashboard
