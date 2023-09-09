@@ -12,4 +12,8 @@ Angular Impartant Comments
     ng serve --open
     ng serve --open --port=5200
 
-4)   
+4) Adding jquery & Boostrap CSS
+    npm install jquery --save
+    npm install popper.js --save
+    npm install bootstrap --save
+    npm install font-awesome --save
