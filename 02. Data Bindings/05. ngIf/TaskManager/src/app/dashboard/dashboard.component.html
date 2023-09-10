@@ -204,50 +204,48 @@
             class="accordion-item"
             *ngFor="let teamMembersGroup of TeamMembers; let i = index"
           >
-            <div *ngIf="i != 0">
-              <h2 class="accordion-header" [attr.id]="'headingRegion' + i">
-                <button
-                  class="accordion-button"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  [attr.data-bs-target]="'#collapseRegion' + i"
-                  aria-expanded="true"
-                  [attr.aria-controls]="'collapseRegion' + i"
-                >
-                  {{ teamMembersGroup.Region }}
-                </button>
-              </h2>
-              <div
-                [attr.id]="'collapseRegion' + i"
-                class="accordion-collapse collapse"
-                [ngClass]="i == 0 ? 'show' : ''"
-                [attr.aria-labelledby]="'headingRegion' + i"
-                data-bs-parent="#accordion1"
+            <h2 class="accordion-header" [attr.id]="'headingRegion' + i">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapseRegion' + i"
+                aria-expanded="true"
+                [attr.aria-controls]="'collapseRegion' + i"
               >
-                <div class="accordion-body">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let member of teamMembersGroup.Members">
-                        <td>{{ member.ID }}</td>
-                        <td
-                          [style.color]="
+                {{ teamMembersGroup.Region }}
+              </button>
+            </h2>
+            <div
+              [attr.id]="'collapseRegion' + i"
+              class="accordion-collapse collapse"
+              [ngClass]="i == 0 ? 'show' : ''"
+              [attr.aria-labelledby]="'headingRegion' + i"
+              data-bs-parent="#accordion1"
+            >
+              <div class="accordion-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let member of teamMembersGroup.Members">
+                      <td>{{ member.ID }}</td>
+                      <td
+                        [style.color]="
                             member.Status == 'Busy' ? 'red' : 'black'
                           "
-                        >
-                          {{ member.Name }}
-                        </td>
-                        <td>{{ member.Status }}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                      >
+                        {{ member.Name }}
+                      </td>
+                      <td>{{ member.Status }}</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
