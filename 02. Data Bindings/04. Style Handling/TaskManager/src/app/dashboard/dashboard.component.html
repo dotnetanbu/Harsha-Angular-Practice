@@ -219,6 +219,7 @@
             <div
               [attr.id]="'collapseRegion' + i"
               class="accordion-collapse collapse"
+              [ngClass]="i == 0 ? 'show' : ''"
               [attr.aria-labelledby]="'headingRegion' + i"
               data-bs-parent="#accordion1"
             >
@@ -234,7 +235,11 @@
                   <tbody>
                     <tr *ngFor="let member of teamMembersGroup.Members">
                       <td>{{ member.ID }}</td>
-                      <td>{{ member.Name }}</td>
+                      <td
+                        [style.color]="(member.Status == 'Busy')?'red':'black'"
+                      >
+                        {{ member.Name }}
+                      </td>
                       <td>{{ member.Status }}</td>
                     </tr>
                   </tbody>
