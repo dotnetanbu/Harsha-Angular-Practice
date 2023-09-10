@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  Designation: string = "";
-  Username: string = "";
-  NoOfTeamMembers: number = 0;
-  TotalCostOfAllProjects: number = 0;
-  PendingTasks: number = 0;
-  UpComingProjects: number = 0;
-  ProjectCost: number = 0;
-  CurrentExpenditure: number = 0;
-  AvailableFunds: number = 0; 
+  Designation: string;
+  Username: string;
+  NoOfTeamMembers: number;
+  TotalCostOfAllProjects: number;
+  PendingTasks: number;
+  UpComingProjects: number;
+  ProjectCost: number;
+  CurrentExpenditure: number;
+  AvailableFunds: number; 
 
   Clients: string[] = [];
   Projects: string[] = [];
