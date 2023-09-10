@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   UpComingProjects: number;
   ProjectCost: number;
   CurrentExpenditure: number;
-  AvailableFunds: number; 
+  AvailableFunds: number;
 
   Clients: string[] = [];
   Projects: string[] = [];
@@ -34,5 +34,10 @@ export class DashboardComponent implements OnInit {
     this.CurrentExpenditure = 96788;
     this.AvailableFunds = 52536;
 
+    this.Clients = [
+      'ABC Infotech Ltd.',
+      'DEF Software Solutions',
+      'GHI Industries'
+    ];
   }
 }

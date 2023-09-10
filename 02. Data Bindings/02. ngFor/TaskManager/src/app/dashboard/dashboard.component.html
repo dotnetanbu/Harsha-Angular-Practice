@@ -80,10 +80,8 @@
         CLIENTS
       </div>
       <div class="col-12">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ABC Infotech Ltd.</li>
-          <li class="list-group-item">DEF Software Solutions</li>
-          <li class="list-group-item">GHI Industries</li>
+        <ul class="list-group list-group-flush" *ngFor="let client of Clients">
+          <li class="list-group-item">{{ client }}</li>
         </ul>
       </div>
     </div>
@@ -224,7 +222,7 @@
                 aria-expanded="true"
                 aria-controls="collapseEast"
               >
-              East
+                East
               </button>
             </h2>
             <div
@@ -235,36 +233,36 @@
             >
               <div class="accordion-body">
                 <table class="table">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Jones</td>
-                        <td><i class="fa fa-user-times"></i> Busy</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Miller</td>
-                        <td><i class="fa fa-phone"></i> Available</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Ford</td>
-                        <td><i class="fa fa-user-times"></i> Busy</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>James</td>
-                        <td><i class="fa fa-phone"></i> Available</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Jones</td>
+                      <td><i class="fa fa-user-times"></i> Busy</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Miller</td>
+                      <td><i class="fa fa-phone"></i> Available</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Ford</td>
+                      <td><i class="fa fa-user-times"></i> Busy</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>James</td>
+                      <td><i class="fa fa-phone"></i> Available</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -278,7 +276,7 @@
                 aria-expanded="false"
                 aria-controls="collapseWest"
               >
-              West
+                West
               </button>
             </h2>
             <div
@@ -287,7 +285,7 @@
               aria-labelledby="headingWest"
               data-bs-parent="#accordion1"
             >
-            <table class="table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -330,7 +328,7 @@
                 aria-expanded="false"
                 aria-controls="collapseNorth"
               >
-              North
+                North
               </button>
             </h2>
             <div
@@ -339,7 +337,7 @@
               aria-labelledby="headingNorth"
               data-bs-parent="#accordion1"
             >
-            <table class="table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -382,7 +380,7 @@
                 aria-expanded="false"
                 aria-controls="collapseSouth"
               >
-              South
+                South
               </button>
             </h2>
             <div
@@ -391,7 +389,7 @@
               aria-labelledby="headingSouth"
               data-bs-parent="#accordion1"
             >
-            <table class="table">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>ID</th>
