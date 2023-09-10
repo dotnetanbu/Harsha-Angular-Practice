@@ -129,12 +129,22 @@
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
                 <li>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    *ngFor="let year of Years"
-                    >{{ year }}</a
-                  >
+                  <a class="dropdown-item" href="#" *ngFor="let year of Years">
+                    <span [ngSwitch]="year">
+                      <span *ngSwitchCase="'2023'" style="color: green">
+                        {{ year }}
+                      </span>
+                      <span *ngSwitchCase="'2022'" style="color: blue">
+                        {{ year }}
+                      </span>
+                      <span *ngSwitchCase="'2021'" style="color: orange">
+                        {{ year }}
+                      </span>
+                      <span *ngSwitchDefault style="color: black">
+                        {{ year }}
+                      </span>
+                    </span>
+                  </a>
                 </li>
               </ul>
             </div>
