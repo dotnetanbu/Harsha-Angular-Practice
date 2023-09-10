@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   ProjectCost: number;
   CurrentExpenditure: number;
   AvailableFunds: number;
+  ToDay: Date;
 
   Clients: string[] = [];
   Projects: string[] = [];
@@ -28,10 +29,11 @@ export class DashboardComponent implements OnInit {
     this.NoOfTeamMembers = 10;
     this.TotalCostOfAllProjects = 20;
     this.PendingTasks = 90;
-    this.UpComingProjects = 2;
+    this.UpComingProjects = 0.2;
     this.ProjectCost = 2113507;
     this.CurrentExpenditure = 96788;
     this.AvailableFunds = 52536;
+    this.ToDay = new Date();
 
     this.Clients = [
       'ABC Infotech Ltd.',
