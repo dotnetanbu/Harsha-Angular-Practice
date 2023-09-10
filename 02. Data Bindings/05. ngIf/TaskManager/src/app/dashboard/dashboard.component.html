@@ -224,28 +224,44 @@
               data-bs-parent="#accordion1"
             >
               <div class="accordion-body">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let member of teamMembersGroup.Members">
-                      <td>{{ member.ID }}</td>
-                      <td
-                        [style.color]="
+                <div
+                  *ngIf="i == 0; then firstTemplate; else secondTemplate"
+                ></div>
+                <ng-template #firstTemplate>
+                  <div
+                    class="card"
+                    *ngFor="let member of teamMembersGroup.Members"
+                  >
+                    <div class="card-header bg-primary text-white">
+                      #{{ member.ID }} {{ member.Name }}
+                    </div>
+                    <div class="card-body">{{ member.Status }}</div>
+                  </div>
+                </ng-template>
+                <ng-template #secondTemplate>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let member of teamMembersGroup.Members">
+                        <td>{{ member.ID }}</td>
+                        <td
+                          [style.color]="
                             member.Status == 'Busy' ? 'red' : 'black'
                           "
-                      >
-                        {{ member.Name }}
-                      </td>
-                      <td>{{ member.Status }}</td>
-                    </tr>
-                  </tbody>
-                </table>
+                        >
+                          {{ member.Name }}
+                        </td>
+                        <td>{{ member.Status }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </ng-template>
               </div>
             </div>
           </div>
