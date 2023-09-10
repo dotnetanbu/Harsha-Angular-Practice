@@ -3,10 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
   Designation: string;
   Username: string;
   NoOfTeamMembers: number;
@@ -24,8 +23,8 @@ export class DashboardComponent implements OnInit {
   TeamMembers: any = [];
 
   ngOnInit(): void {
-    this.Designation = "Team Leader";
-    this.Username = "Anbu";
+    this.Designation = 'Team Leader';
+    this.Username = 'Anbu';
     this.NoOfTeamMembers = 10;
     this.TotalCostOfAllProjects = 20;
     this.PendingTasks = 90;
@@ -37,7 +36,36 @@ export class DashboardComponent implements OnInit {
     this.Clients = [
       'ABC Infotech Ltd.',
       'DEF Software Solutions',
-      'GHI Industries'
+      'GHI Industries',
+    ];
+
+    this.Projects = ['Project A', 'Project B', 'Project C', 'Project D'];
+
+    for (var i = 2023; i >= 2018; i--) {
+      this.Years.push(i);
+    }
+
+    this.TeamMembersSummary = [
+      {
+        Region: 'East',
+        TeamMembersCount: 20,
+        TemporarilyUnavailableMembers: 4,
+      },
+      {
+        Region: 'West',
+        TeamMembersCount: 15,
+        TemporarilyUnavailableMembers: 8,
+      },
+      {
+        Region: 'South',
+        TeamMembersCount: 17,
+        TemporarilyUnavailableMembers: 1,
+      },
+      {
+        Region: 'North',
+        TeamMembersCount: 15,
+        TemporarilyUnavailableMembers: 6,
+      },
     ];
   }
 }

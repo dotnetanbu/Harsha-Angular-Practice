@@ -102,10 +102,7 @@
                 Project A
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Project A</a></li>
-                <li><a class="dropdown-item" href="#">Project B</a></li>
-                <li><a class="dropdown-item" href="#">Project C</a></li>
-                <li><a class="dropdown-item" href="#">Project D</a></li>
+                <li><a class="dropdown-item" href="#" *ngFor="let project of Projects">{{project}}</a></li>
               </ul>
             </div>
           </div>
@@ -121,11 +118,7 @@
                 Year
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                <li><a class="dropdown-item" href="#">2019</a></li>
-                <li><a class="dropdown-item" href="#">2020</a></li>
-                <li><a class="dropdown-item" href="#">2021</a></li>
-                <li><a class="dropdown-item" href="#">2022</a></li>
-                <li><a class="dropdown-item" href="#">2023</a></li>
+                <li><a class="dropdown-item" href="#" *ngFor="let year of Years">{{year}}</a></li>
               </ul>
             </div>
           </div>
@@ -169,33 +162,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let teamMemberSumary of TeamMembersSummary">
               <td>
-                <b>East</b>
+                <b>{{teamMemberSumary.Region}}</b>
               </td>
-              <td>20</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>
-                <b>South</b>
-              </td>
-              <td>15</td>
-              <td>8</td>
-            </tr>
-            <tr>
-              <td>
-                <b>West</b>
-              </td>
-              <td>17</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>
-                <b>North</b>
-              </td>
-              <td>15</td>
-              <td>6</td>
+              <td>{{teamMemberSumary.TeamMembersCount}}</td>
+              <td>{{teamMemberSumary.TemporarilyUnavailableMembers}}</td>
             </tr>
           </tbody>
         </table>
