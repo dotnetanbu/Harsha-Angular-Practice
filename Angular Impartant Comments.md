@@ -20,3 +20,6 @@ Angular Impartant Comments
 
 5) Create New Components
     ng g component Dashboard
+
+6) Create New Module
+    ng g module Admin
