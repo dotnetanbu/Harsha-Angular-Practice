@@ -23,3 +23,6 @@ Angular Impartant Comments
 
 6) Create New Module
     ng g module Admin
+
+7) Create New Service
+    ng g service Dashboard
