@@ -1,3 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Configuration;
+using TaskManager_Core_WebAPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,23 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var connectionString = builder.Configuration.GetConnectionString("TaskManagerConnectionStrings");
+
+builder.Services.AddDbContext<TaskManagerDbContext>(options => { options.UseSqlServer(connectionString); });
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+
 
 var app = builder.Build();
 
@@ -19,5 +41,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors();
 
 app.Run();
