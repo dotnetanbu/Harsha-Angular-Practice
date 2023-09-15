@@ -26,3 +26,6 @@ Angular Impartant Comments
 
 7) Create New Service
     ng g service Dashboard
+
+8) Create New Class
+    ng g class project
