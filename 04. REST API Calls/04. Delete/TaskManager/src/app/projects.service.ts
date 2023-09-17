@@ -29,4 +29,10 @@ export class ProjectsService {
       { responseType: 'json' }
     );
   }
+
+  deleteProject(projectID: number): Observable<string> {
+    return this.httpClient.delete<string>(
+      this.urlPrefix + 'projects/' + projectID.toString()
+    );
+  }
 }

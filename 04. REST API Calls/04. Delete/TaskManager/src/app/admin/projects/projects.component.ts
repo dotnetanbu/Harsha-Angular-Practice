@@ -12,6 +12,8 @@ export class ProjectsComponent implements OnInit {
   newProject: Project = new Project();
   editProject: Project = new Project();
   editIndex: any = null;
+  deleteProject: Project = new Project();
+  deleteIndex: any = null;
 
   constructor(private projectsService: ProjectsService) {}
 
@@ -64,10 +66,37 @@ export class ProjectsComponent implements OnInit {
         this.projects[this.editIndex] = p;
 
         //Clear Edit Project Dialog - TextBoxes
-        this.newProject.projectID = null;
-        this.newProject.projectName = null;
-        this.newProject.dateOfStart = null;
-        this.newProject.teamSize = null;
+        this.editProject.projectID = null;
+        this.editProject.projectName = null;
+        this.editProject.dateOfStart = null;
+        this.editProject.teamSize = null;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  onDeleteClick(event: any, index: number) {
+    this.deleteIndex = index;
+    
+    this.deleteProject.projectID = this.projects[index].projectID;
+    this.deleteProject.projectName = this.projects[index].projectName;
+    this.deleteProject.dateOfStart = this.projects[index].dateOfStart;
+    this.deleteProject.teamSize = this.projects[index].teamSize;
+  }
+
+  onDeleteConfirmClick() {
+    this.projectsService.deleteProject(this.deleteProject.projectID).subscribe(
+      (response) => {
+        console.log(this.deleteIndex);
+        this.projects.splice(this.deleteIndex, 1);
+
+        //Clear Delete Project Dialog - TextBoxes
+        this.deleteProject.projectID = null;
+        this.deleteProject.projectName = null;
+        this.deleteProject.dateOfStart = null;
+        this.deleteProject.teamSize = null;
       },
       (error) => {
         console.log(error);
