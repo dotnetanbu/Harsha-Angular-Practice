@@ -14,4 +14,11 @@ export class ProjectsService {
   getAllProjects(): Observable<Project[]> {
     return this.httpClient.get<Project[]>(this.urlPrefix + 'Projects');
   }
+
+  insertProject(newProject: Project): Observable<Project> {
+    return this.httpClient.post<Project>(
+      this.urlPrefix + 'Projects',
+      newProject
+    );
+  }
 }
