@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using TaskManager_Core_WebAPI.Models;
 
 namespace TaskManager_Core_WebAPI.Controllers
@@ -49,16 +50,11 @@ namespace TaskManager_Core_WebAPI.Controllers
             return project;
         }
 
-        // PUT: api/Projects/5
+        // PUT: api/Projects
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProject(int id, Project project)
+        [HttpPut]
+        public async Task<IActionResult> PutProject(Project project)
         {
-            if (id != project.ProjectID)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(project).State = EntityState.Modified;
 
             try
@@ -67,7 +63,7 @@ namespace TaskManager_Core_WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProjectExists(id))
+                if (!ProjectExists(project.ProjectID))
                 {
                     return NotFound();
                 }
@@ -77,7 +73,7 @@ namespace TaskManager_Core_WebAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(project);
         }
 
         // POST: api/Projects
