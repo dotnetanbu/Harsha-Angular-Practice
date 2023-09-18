@@ -1,54 +1,92 @@
 <h5>Projects</h5>
 
-<div class="col-8 mx-auto">
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#newModal"
-  >
-    Create Project
-  </button>
-</div>
-
 <div class="row">
   <div class="col-8 mx-auto">
-    <table class="table">
-      <thead>
-        <th>Project ID</th>
-        <th>Project Name</th>
-        <th>Date of Start</th>
-        <th>Team Size</th>
-        <th>Actions</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let project of projects; let i = index">
-          <td>{{ project.projectID }}</td>
-          <td>{{ project.projectName }}</td>
-          <td>{{ project.dateOfStart }}</td>
-          <td>{{ project.teamSize }}</td>
-          <td>
-            <button
-              class="btn btn-info"
-              (click)="onEditClick($event, i)"
-              data-bs-toggle="modal"
-              data-bs-target="#editModal"
-            >
-              Edit
-            </button>
-            &nbsp;
-            <button
-              class="btn btn-danger"
-              (click)="onDeleteClick($event, i)"
-              data-bs-toggle="modal"
-              data-bs-target="#deleteModal"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="form-group form-row">
+      <label for="drpSearchBy" class="col-form-label col-3">Search By:</label>
+      <div class="col-3">
+        <select
+          class="form-control"
+          id="drpSearchBy"
+          name="SearchBy"
+          [(ngModel)]="searchBy"
+        >
+          <option value="ProjectID">Project ID</option>
+          <option value="ProjectName">Project Name</option>
+          <option value="DateOfStart">Date of Start</option>
+          <option value="TeamSize">Team Size</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group form-row">
+      <label for="textSearchText" class="col-form-label col-3">Search:</label>
+      <div class="col-3">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="txtSearchText"
+            name="SearchText"
+            [(ngModel)]="searchText"
+          />
+          <div class="input-group-append" (click)="onSearchClick()">
+            <span class="input-group-text"><i class="fa fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8 mx-auto">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#newModal"
+    >
+      Create Project
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <table class="table">
+        <thead>
+          <th>Project ID</th>
+          <th>Project Name</th>
+          <th>Date of Start</th>
+          <th>Team Size</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of projects; let i = index">
+            <td>{{ project.projectID }}</td>
+            <td>{{ project.projectName }}</td>
+            <td>{{ project.dateOfStart }}</td>
+            <td>{{ project.teamSize }}</td>
+            <td>
+              <button
+                class="btn btn-info"
+                (click)="onEditClick($event, i)"
+                data-bs-toggle="modal"
+                data-bs-target="#editModal"
+              >
+                Edit
+              </button>
+              &nbsp;
+              <button
+                class="btn btn-danger"
+                (click)="onDeleteClick($event, i)"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

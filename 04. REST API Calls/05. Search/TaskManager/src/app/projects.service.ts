@@ -35,4 +35,10 @@ export class ProjectsService {
       this.urlPrefix + 'projects/' + projectID.toString()
     );
   }
+
+  SearchProjects(searchBy: string, searchText: string): Observable<Project[]> {
+    return this.httpClient.get<Project[]>(
+      this.urlPrefix + 'projects/' + searchBy + '/' + searchText
+    );
+  }
 }
