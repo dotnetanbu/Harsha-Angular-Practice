@@ -50,6 +50,30 @@ namespace TaskManager_Core_WebAPI.Controllers
             return project;
         }
 
+        [HttpGet]
+        [Route("{searchBy}/{searchText}")]
+        public async Task<ActionResult<IEnumerable<Project>>> Search(string searchBy, string searchText)
+        {
+            List<Project> projects = null;
+
+            if (searchBy.ToUpper() == "PROJECTID")
+                projects = await _context.Projects.Where(temp => temp.ProjectID.ToString().Contains(searchText)).ToListAsync();
+            else if(searchBy.ToUpper() == "PROJECTNAME")
+                projects = await _context.Projects.Where(temp => temp.ProjectName.Contains(searchText)).ToListAsync();
+            else if (searchBy.ToUpper() == "DATEOFSTART")
+                projects = await _context.Projects.Where(temp => temp.DateOfStart.ToString().Contains(searchText)).ToListAsync();
+            else if (searchBy.ToUpper() == "TEAMSIZE")
+                projects = await _context.Projects.Where(temp => temp.TeamSize.ToString().Contains(searchText)).ToListAsync();
+
+            if (projects == null)
+            {
+                return NotFound();
+            }
+
+            return projects;
+        }
+
+
         // PUT: api/Projects
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut]
